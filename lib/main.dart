@@ -37,8 +37,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  var child;
-
   void _incrementCounter() {
     setState(() {
       _counter++;
@@ -54,8 +52,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Container(
-          width: 400,
           height: 400,
+          width: 400,
           child: Column(
             children: [
               Center(
@@ -76,11 +74,23 @@ class _MyHomePageState extends State<MyHomePage> {
                   print('Inkwell clicked');
                 },
                 child: Container(
-                  height: 50,
-                  width: 50,
-                  color: Colors.red,
+                  height: 100,
+                  width: 100,
+                  color: Color.fromARGB(255, 89, 183, 226),
+                  child: Center(
+                    child: InkWell(
+                      onTap: () {
+                        print('text Inkwell clicked');
+                      },
+                      child: Text(
+                        'click here!',
+                        style: TextStyle(
+                            fontSize: 21, fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                  ),
                 ),
-              )
+              ),
             ],
           ),
         ),
