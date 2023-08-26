@@ -37,6 +37,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
+  var child;
+
   void _incrementCounter() {
     setState(() {
       _counter++;
@@ -63,6 +65,22 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: const Color.fromARGB(255, 0, 0, 0), fontSize: 15),
               )),
               Image.asset("assets/images/Dash.png"),
+              ElevatedButton(
+                child: Text('click me'),
+                onPressed: () {
+                  print('Elevated Button clicked');
+                },
+              ),
+              InkWell(
+                onTap: () {
+                  print('Inkwell clicked');
+                },
+                child: Container(
+                  height: 50,
+                  width: 50,
+                  color: Colors.red,
+                ),
+              )
             ],
           ),
         ),
