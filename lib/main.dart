@@ -46,55 +46,36 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Container(
-          height: 400,
-          width: 400,
-          child: Column(
-            children: [
-              Center(
-                  child: Text(
-                "Hello World!",
-                style: TextStyle(
-                    color: const Color.fromARGB(255, 0, 0, 0), fontSize: 15),
-              )),
-              Image.asset("assets/images/Dash.png"),
-              ElevatedButton(
-                child: Text('click me'),
-                onPressed: () {
-                  print('Elevated Button clicked');
-                },
-              ),
-              InkWell(
-                onTap: () {
-                  print('Inkwell clicked');
-                },
-                child: Container(
-                  height: 100,
-                  width: 100,
-                  color: Color.fromARGB(255, 89, 183, 226),
-                  child: Center(
-                    child: InkWell(
-                      onTap: () {
-                        print('text Inkwell clicked');
-                      },
-                      child: Text(
-                        'click here!',
-                        style: TextStyle(
-                            fontSize: 21, fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: Text(widget.title),
         ),
-      ),
-    );
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.all(10.0),
+                  height: 200,
+                  width: 200,
+                  color: Colors.yellowAccent,
+                ),
+                Container(
+                  margin: const EdgeInsets.all(10.0),
+                  height: 200,
+                  width: 200,
+                  color: Color.fromARGB(255, 53, 230, 141),
+                ),
+                Container(
+                  margin: const EdgeInsets.all(10.0),
+                  height: 200,
+                  width: 200,
+                  color: Color.fromARGB(255, 23, 167, 224),
+                ),
+              ],
+            ),
+          ),
+        ));
   }
 }
