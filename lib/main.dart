@@ -45,50 +45,38 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    var arrNames = [
+      //taking dynamics data from here i.e. using var we're taking data from arrNames
+      "Maharshi",
+      "Flutter",
+      "Dart",
+      "Android",
+      "iOS",
+      "GitHub",
+      "VSCodes"
+    ];
+
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text(widget.title),
-        ),
-        body: ListView(
-          scrollDirection: Axis.vertical,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'one',
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 21),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'two',
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 21),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'three',
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 21),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'four',
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 21),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'five',
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 21),
-              ),
-            )
-          ],
-        ));
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(widget.title),
+      ),
+      body: ListView.builder(
+        itemBuilder: (context, index) {
+          return Text(
+            //you can also give paddings here
+            arrNames[index],
+            style: TextStyle(
+                fontSize: 21,
+                fontWeight: FontWeight
+                    .w500), //instead of any text we're printing arrnames[index]
+          );
+        },
+        itemCount: arrNames.length,
+        //this is the length of the array (.length) for whole length of the array
+        itemExtent: 100, //this is the size of the list
+        scrollDirection: Axis.vertical, //this is the direction of the list
+      ),
+    );
   }
 }
