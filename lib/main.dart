@@ -61,22 +61,27 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: ListView.builder(
-        itemBuilder: (context, index) {
-          return Text(
-            //you can also give paddings here
-            arrNames[index],
-            style: TextStyle(
-                fontSize: 21,
-                fontWeight: FontWeight
-                    .w500), //instead of any text we're printing arrnames[index]
-          );
-        },
-        itemCount: arrNames.length,
-        //this is the length of the array (.length) for whole length of the array
-        itemExtent: 100, //this is the size of the list
-        scrollDirection: Axis.vertical, //this is the direction of the list
-      ),
+      body: ListView.separated(
+          itemBuilder: (context, index) {
+            return Text(
+              //you can also give paddings here
+              arrNames[index],
+              style: TextStyle(
+                  fontSize: 21,
+                  fontWeight: FontWeight
+                      .w500), //instead of any text we're printing arrnames[index]
+            );
+          },
+          itemCount: arrNames.length,
+          //this is the length of the array (.length) for whole length of the array
+          separatorBuilder: (context, index) {
+            //availabe only in ListView.seperated works for seperating the items
+            return Divider(
+              height: 50,
+              color: Colors.black,
+              thickness: 1,
+            );
+          }),
     );
   }
 }
