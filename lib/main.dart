@@ -50,57 +50,45 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(widget.title),
         ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              children: [
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(bottom: 11),
-                        height: 200,
-                        width: 200,
-                        color: Colors.amberAccent,
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(bottom: 11),
-                        height: 200,
-                        width: 200,
-                        color: Colors.red,
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(bottom: 11),
-                        height: 200,
-                        width: 200,
-                        color: Color.fromARGB(255, 241, 39, 157),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(bottom: 11),
-                  height: 200,
-                  width: 200,
-                  color: Colors.blue,
-                ),
-                Container(
-                  margin: const EdgeInsets.only(bottom: 11),
-                  height: 200,
-                  width: 200,
-                  color: Colors.orangeAccent,
-                ),
-                Container(
-                  margin: const EdgeInsets.only(bottom: 11),
-                  height: 200,
-                  width: 200,
-                  color: Color.fromARGB(255, 92, 241, 167),
-                )
-              ],
+        body: ListView(
+          scrollDirection: Axis.horizontal,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'one',
+                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 21),
+              ),
             ),
-          ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'two',
+                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 21),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'three',
+                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 21),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'four',
+                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 21),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'five',
+                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 21),
+              ),
+            )
+          ],
         ));
   }
 }
