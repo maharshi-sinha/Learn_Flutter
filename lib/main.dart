@@ -9,9 +9,7 @@ class FlutterApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Flutter App",
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: DashboardScreen(),
     );
   }
@@ -25,9 +23,26 @@ class DashboardScreen extends StatelessWidget {
         title: Text("Dashboard Screen"),
       ),
       body: Container(
-        color: Colors.blueAccent,
+        width: double.infinity,
+        height: double.infinity,
+        color: Colors.blue.shade50,
         child: Center(
-          child: Image.asset("assets/images/Dash.png"),
+          child: Container(
+            height: 150,
+            width: 150,
+            decoration: BoxDecoration(
+              color: Colors.purple.shade300,
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: Colors.black, width: 2),
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 51,
+                  color: Colors.red,
+                  spreadRadius: 11,
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
