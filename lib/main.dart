@@ -22,29 +22,39 @@ class DashboardScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Dashboard Screen"),
       ),
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        color: Colors.blue.shade50,
-        child: Center(
-          child: Container(
-            height: 150,
-            width: 150,
-            decoration: BoxDecoration(
-              color: Colors.purple.shade300,
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: Colors.black, width: 2),
-              boxShadow: [
-                BoxShadow(
-                  blurRadius: 51,
-                  color: Colors.red,
-                  spreadRadius: 11,
-                ),
-              ],
+      body: Row(
+        children: [
+          Container(
+            width: 50,
+            height: 100,
+            color: Colors.blue,
+          ),
+          Expanded(
+            //expanded widget fills the remaining space in the screen
+            flex:
+                10, //flex property is used to divide the space in terms of ratio you can say.
+            child: Container(
+              width: 50,
+              height: 100,
+              color: Colors.orange,
             ),
           ),
-        ),
-      ), 
+          Expanded(
+            flex:
+                2, //here we're dividing the space in 10(orange):2(purple) ratio
+            child: Container(
+              width: 50,
+              height: 100,
+              color: Colors.deepPurple,
+            ),
+          ),
+          Container(
+            width: 50,
+            height: 100,
+            color: Colors.red,
+          ),
+        ],
+      ),
     );
   }
 }
