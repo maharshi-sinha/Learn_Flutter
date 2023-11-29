@@ -44,50 +44,31 @@ class DashboardScreen extends StatelessWidget {
     //   'Cherry',
     //   'Lemon',
     //   'Peach',
-    //   'Pear',
-    //   'Plum',
-    //   'Apricot',
     //   'Avocado',
     //   'Blackberry',
     //   'Blueberry',
     //   'Coconut',
     //   'Cranberry',
-    //   'Fig',
     //   'Grapefruit',
-    //   'Honeydew',
-    //   'Kumquat',
     //   'Lychee',
-    //   'Nectarine',
     //   'Raspberry',
     // ];
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Dashboard Screen"),
-      ),
-      body: Column(
-        children: [
-          Text(
-            "Hello World!",
-            style: Theme.of(context)
-                .textTheme
-                .displayLarge!
-                .copyWith(color: Colors.red),
+        appBar: AppBar(
+          title: Text("Dashboard Screen"),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(
+            child: Card(
+                elevation: 5,
+                shadowColor: Colors.orange,
+                child: Text(
+                  "Hello World",
+                  style: TextStyle(fontSize: 22),
+                )),
           ),
-          Text(
-            "Hello World!",
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
-          Text(
-            "Hello World!",
-            style: Theme.of(context).textTheme.displayLarge,
-          ),
-          Text(
-            "Hello World!",
-            style: mTextstyle11(textColor: Colors.purple),
-          ),
-        ],
-      ),
-    );
+        ));
   }
 }
