@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project1/ui_helper/util.dart';
 
 void main() {
   runApp(FlutterApp());
@@ -11,14 +10,7 @@ class FlutterApp extends StatelessWidget {
     return MaterialApp(
       title: "Flutter App",
       theme: ThemeData(
-        primarySwatch: Colors.lightGreen,
-        textTheme: TextTheme(
-          displayLarge: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
-          titleMedium: TextStyle(
-              fontSize: 11,
-              fontWeight: FontWeight.w500,
-              fontStyle: FontStyle.italic),
-        ),
+        primarySwatch: Colors.blue,
       ),
       home: DashboardScreen(),
     );
@@ -26,49 +18,83 @@ class FlutterApp extends StatelessWidget {
 }
 
 class DashboardScreen extends StatelessWidget {
+  var emailController = TextEditingController();
+  var passController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    // var arrNames = [
-    //   'Apple',
-    //   'Banana',
-    //   'Orange',
-    //   'Mango',
-    //   'Pineapple',
-    //   'Grapes',
-    //   'Watermelon',
-    //   'Papaya',
-    //   'Guava',
-    //   'Kiwi',
-    //   'Pomegranate',
-    //   'Strawberry',
-    //   'Cherry',
-    //   'Lemon',
-    //   'Peach',
-    //   'Avocado',
-    //   'Blackberry',
-    //   'Blueberry',
-    //   'Coconut',
-    //   'Cranberry',
-    //   'Grapefruit',
-    //   'Lychee',
-    //   'Raspberry',
-    // ];
-
     return Scaffold(
         appBar: AppBar(
-          title: Text("Dashboard Screen"),
+          title: Text('DashboardScreen'),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Center(
-            child: Card(
-                elevation: 5,
-                shadowColor: Colors.orange,
-                child: Text(
-                  "Hello World",
-                  style: TextStyle(fontSize: 22),
-                )),
-          ),
-        ));
+        body: Center(
+            child: Container(
+                width: 300,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextField(
+                      controller: emailController,
+                      decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(11),
+                            borderSide:
+                                BorderSide(color: Colors.blue, width: 2),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(11),
+                            borderSide:
+                                BorderSide(color: Colors.deepOrange, width: 2),
+                          ),
+                          suffixIcon: IconButton(
+                            icon:
+                                Icon(Icons.remove_red_eye, color: Colors.pink),
+                            onPressed: () {
+                              print("eye button Pressed");
+                            },
+                          )),
+                    ),
+                    Container(height: 11),
+                    TextField(
+                      controller: passController,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(11),
+                          borderSide: BorderSide(color: Colors.red, width: 2),
+                        ),
+                        suffixText: 'This is suffixText',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(11),
+                        ),
+                      ),
+                    ),
+                    Container(height: 11),
+                    TextField(
+                      enabled: false,
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(11),
+                          borderSide: BorderSide(color: Colors.red, width: 2),
+                        ),
+                        disabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(11),
+                          borderSide: BorderSide(color: Colors.red, width: 2),
+                        ),
+                        hintText: 'Disabled TextField, this is hintText',
+                      ),
+                    ),
+                    Container(height: 11),
+                    ElevatedButton(
+                      onPressed: () {
+                        String uEmail = emailController.text.toString();
+                        String uPass = passController.text;
+
+                        print("Email: $uEmail, Password: $uPass");
+                      },
+                      child: Text('Login'),
+                    )
+                  ],
+                ))));
   }
 }
