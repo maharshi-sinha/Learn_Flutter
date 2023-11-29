@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project1/ui_helper/util.dart';
 
 void main() {
   runApp(FlutterApp());
@@ -17,9 +18,13 @@ class FlutterApp extends StatelessWidget {
   }
 }
 
-class DashboardScreen extends StatelessWidget {
-  var emailController = TextEditingController();
-  var passController = TextEditingController();
+class DashboardScreen extends StatefulWidget {
+  @override
+  State<DashboardScreen> createState() => _DashboardScreenState();
+}
+
+class _DashboardScreenState extends State<DashboardScreen> {
+  var time = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -28,73 +33,30 @@ class DashboardScreen extends StatelessWidget {
           title: Text('DashboardScreen'),
         ),
         body: Center(
-            child: Container(
-                width: 300,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextField(
-                      controller: emailController,
-                      decoration: InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(11),
-                            borderSide:
-                                BorderSide(color: Colors.blue, width: 2),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(11),
-                            borderSide:
-                                BorderSide(color: Colors.deepOrange, width: 2),
-                          ),
-                          suffixIcon: IconButton(
-                            icon:
-                                Icon(Icons.remove_red_eye, color: Colors.pink),
-                            onPressed: () {
-                              print("eye button Pressed");
-                            },
-                          )),
-                    ),
-                    Container(height: 11),
-                    TextField(
-                      controller: passController,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(11),
-                          borderSide: BorderSide(color: Colors.red, width: 2),
-                        ),
-                        suffixText: 'This is suffixText',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(11),
-                        ),
-                      ),
-                    ),
-                    Container(height: 11),
-                    TextField(
-                      enabled: false,
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(11),
-                          borderSide: BorderSide(color: Colors.red, width: 2),
-                        ),
-                        disabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(11),
-                          borderSide: BorderSide(color: Colors.red, width: 2),
-                        ),
-                        hintText: 'Disabled TextField, this is hintText',
-                      ),
-                    ),
-                    Container(height: 11),
-                    ElevatedButton(
-                      onPressed: () {
-                        String uEmail = emailController.text.toString();
-                        String uPass = passController.text;
-
-                        print("Email: $uEmail, Password: $uPass");
-                      },
-                      child: Text('Login'),
-                    )
-                  ],
-                ))));
+          child: Container(
+            height: 200,
+            width: 200,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Current Time: $time',
+                  style: mTextstyle21(),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      time = DateTime.now();
+                    });
+                  },
+                  child: Text('Refresh Time'),
+                ),
+              ],
+            ),
+          ),
+        ));
   }
 }
