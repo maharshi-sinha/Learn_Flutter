@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project1/ui_helper/util.dart';
+import 'package:intl/intl_browser.dart';
 
 void main() {
   runApp(FlutterApp());
@@ -33,29 +34,28 @@ class _DashboardScreenState extends State<DashboardScreen> {
           title: Text('DashboardScreen'),
         ),
         body: Center(
-          child: Container(
-            height: 200,
-            width: 200,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Current Time: $time',
-                  style: mTextstyle21(),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      time = DateTime.now();
-                    });
-                  },
-                  child: Text('Refresh Time'),
-                ),
-              ],
-            ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Select Date",
+                style: TextStyle(fontSize: 25),
+              ),
+              ElevatedButton(
+                  onPressed: (() async {
+                    DateTime? datePicked = await showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(2021),
+                        lastDate: DateTime(2026));
+
+                    if (datePicked != null) {
+                      print(
+                          'Date Selected: ${datePicked.year}-${datePicked.month}-${datePicked.day}');
+                    }
+                  }),
+                  child: Text("tap me")),
+            ],
           ),
         ));
   }
