@@ -45,8 +45,10 @@ class DashboardScreen extends StatelessWidget {
             );
           },
           itemCount: arrColors.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 4, crossAxisSpacing: 10, mainAxisSpacing: 5)),
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 100,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 5)),
     );
   }
 }
