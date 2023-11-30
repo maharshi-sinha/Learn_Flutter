@@ -38,10 +38,10 @@ class DashboardScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Dashboard"),
       ),
-      body: GridView.count(
-        crossAxisCount: 3,
-        crossAxisSpacing: 5,
-        mainAxisSpacing: 10,
+      body: GridView.extent(
+        maxCrossAxisExtent: 100,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 5,
         children: [
           Container(color: arrColors[0]),
           Container(color: arrColors[1]),
