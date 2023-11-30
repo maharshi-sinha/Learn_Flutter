@@ -1,62 +1,58 @@
 import 'package:flutter/material.dart';
 import 'package:project1/ui_helper/util.dart';
-import 'package:intl/intl_browser.dart';
 
 void main() {
   runApp(FlutterApp());
 }
 
 class FlutterApp extends StatelessWidget {
+  const FlutterApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Flutter App",
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: DashboardScreen(),
     );
   }
 }
 
-class DashboardScreen extends StatefulWidget {
-  @override
-  State<DashboardScreen> createState() => _DashboardScreenState();
-}
+class DashboardScreen extends StatelessWidget {
+  DashboardScreen({super.key});
 
-class _DashboardScreenState extends State<DashboardScreen> {
-  var time = DateTime.now();
+  var arrColors = [
+    Colors.red,
+    Colors.green,
+    Colors.blue,
+    Colors.yellow,
+    Colors.pink,
+    Colors.purple,
+    Colors.orange,
+    Colors.brown
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('DashboardScreen'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Select Date",
-                style: TextStyle(fontSize: 25),
-              ),
-              ElevatedButton(
-                  onPressed: (() async {
-                    DateTime? datePicked = await showDatePicker(
-                        context: context,
-                        initialDate: DateTime.now(),
-                        firstDate: DateTime(2021),
-                        lastDate: DateTime(2026));
-
-                    if (datePicked != null) {
-                      print(
-                          'Date Selected: ${datePicked.year}-${datePicked.month}-${datePicked.day}');
-                    }
-                  }),
-                  child: Text("tap me")),
-            ],
-          ),
-        ));
+      appBar: AppBar(
+        title: Text("Dashboard"),
+      ),
+      body: GridView.count(
+        crossAxisCount: 3,
+        crossAxisSpacing: 5,
+        mainAxisSpacing: 10,
+        children: [
+          Container(color: arrColors[0]),
+          Container(color: arrColors[1]),
+          Container(color: arrColors[2]),
+          Container(color: arrColors[3]),
+          Container(color: arrColors[4]),
+          Container(color: arrColors[5]),
+          Container(color: arrColors[6]),
+          Container(color: arrColors[7]),
+        ],
+      ),
+    );
   }
 }
