@@ -5,8 +5,17 @@ void main() {
   runApp(FlutterApp());
 }
 
-class FlutterApp extends StatelessWidget {
+class FlutterApp extends StatefulWidget {
   const FlutterApp({super.key});
+
+  @override
+  State<FlutterApp> createState() => _FlutterAppState();
+}
+
+class _FlutterAppState extends State<FlutterApp> {
+  callBack() {
+    print("Clicked!!!");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,34 +30,26 @@ class FlutterApp extends StatelessWidget {
 class DashboardScreen extends StatelessWidget {
   DashboardScreen({super.key});
 
-  var arrColors = [
-    Colors.red,
-    Colors.green,
-    Colors.blue,
-    Colors.yellow,
-    Colors.pink,
-    Colors.purple,
-    Colors.orange,
-    Colors.brown
-  ];
+  // var arrColors = [
+  //   Colors.red,
+  //   Colors.green,
+  //   Colors.blue,
+  //   Colors.yellow,
+  //   Colors.pink,
+  //   Colors.purple,
+  //   Colors.orange,
+  //   Colors.brown
+  // ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Dashboard"),
-      ),
-      body: GridView.builder(
-          itemBuilder: (context, index) {
-            return Container(
-              color: arrColors[index],
-            );
-          },
-          itemCount: arrColors.length,
-          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 100,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 5)),
-    );
+        appBar: AppBar(
+          title: Text("Dashboard"),
+        ),
+        body: ElevatedButton(
+          child: Text("Click Me"),
+          onPressed: callBack,
+        ));
   }
 }
