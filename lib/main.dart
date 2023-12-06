@@ -39,116 +39,45 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Dashboard"),
-      ),
-      body: Container(
-        child: Column(
+        appBar: AppBar(
+          title: Text("Dashboard"),
+        ),
+        body: Stack(
           children: [
-            catItem(), //splitted into widget by making a class below
-            Widget2(),
-            widget3(),
-            widget4(),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class catItem extends StatelessWidget {
-  const catItem({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      flex: 2,
-      child: Container(
-        height: 200,
-        color: Colors.red,
-        child: ListView.builder(
-          itemCount: 10,
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) => Padding(
-            padding: const EdgeInsets.all(11.0),
-            child: SizedBox(
-              width: 100,
-              child: CircleAvatar(
-                  backgroundColor: Colors.yellowAccent,
-                  backgroundImage: AssetImage('assets/images/Dash.png')),
+            Container(
+              // color: Colors.blue,
+              height: 400,
+              width: 300,
+              decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.black,
+                        blurRadius: 10,
+                        offset: Offset(10, 10))
+                  ]),
             ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class Widget2 extends StatelessWidget {
-  const Widget2({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      flex: 4,
-      child: Container(
-        color: Colors.blue,
-        child: ListView.builder(
-          itemBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.all(8),
-              child: ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: Colors.black,
-                ),
-                title: Text("Name"),
-                subtitle: Text("Mobile No"),
-                trailing: Icon(Icons.call),
-              )),
-          itemCount: 10,
-        ),
-      ),
-    );
-  }
-}
-
-class widget3 extends StatelessWidget {
-  const widget3({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      flex: 1,
-      child: Container(
-          height: 200,
-          color: Colors.yellowAccent,
-          child: ListView.builder(
-            itemBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.all(11.0),
+            Positioned(
+              top: 30,
+              left: 40,
+              right: 40,
+              bottom: 30,
               child: Container(
-                width: 200,
+                height: 400,
+                width: 300,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(11),
-                    color: Colors.orange),
+                    color: Colors.green,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black,
+                          blurRadius: 10,
+                          offset: Offset(10, 5))
+                    ]),
               ),
             ),
-            itemCount: 10,
-            scrollDirection: Axis.horizontal,
-          )),
-    );
-  }
-}
-
-class widget4 extends StatelessWidget {
-  const widget4({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      flex: 1,
-      child: Container(
-        height: 200,
-        color: Colors.purple,
-      ),
-    );
+          ],
+        ));
   }
 }
