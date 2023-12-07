@@ -39,45 +39,19 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Dashboard"),
+      appBar: AppBar(
+        title: Text("Dashboard"),
+      ),
+      body: Center(
+        child: SizedBox(
+          height: 40,
+          width: 100,
+          child: ElevatedButton(
+            onPressed: () {},
+            child: Text("Click Me!"),
+          ),
         ),
-        body: Stack(
-          children: [
-            Container(
-              // color: Colors.blue,
-              height: 400,
-              width: 300,
-              decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.black,
-                        blurRadius: 10,
-                        offset: Offset(10, 10))
-                  ]),
-            ),
-            Positioned(
-              top: 30,
-              left: 40,
-              right: 40,
-              bottom: 30,
-              child: Container(
-                height: 400,
-                width: 300,
-                decoration: BoxDecoration(
-                    color: Colors.green,
-                    borderRadius: BorderRadius.circular(10),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.black,
-                          blurRadius: 10,
-                          offset: Offset(10, 5))
-                    ]),
-              ),
-            ),
-          ],
-        ));
+      ),
+    );
   }
 }
