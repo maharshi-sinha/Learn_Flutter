@@ -39,19 +39,31 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Dashboard"),
-      ),
-      body: Center(
-        child: SizedBox(
-          height: 40,
-          width: 100,
-          child: ElevatedButton(
-            onPressed: () {},
-            child: Text("Click Me!"),
-          ),
+        appBar: AppBar(
+          title: Text("Dashboard"),
         ),
-      ),
-    );
+        body: Center(
+          child: RichText(
+              text: TextSpan(
+            style: TextStyle(color: Colors.grey, fontSize: 20),
+            children: <TextSpan>[
+              TextSpan(text: "Hello "),
+              TextSpan(
+                  text: "World,",
+                  style: TextStyle(
+                      color: Colors.blue,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25)),
+              TextSpan(text: " Welcome to "),
+              TextSpan(
+                  text: 'Flutter',
+                  style: TextStyle(
+                      color: Colors.deepOrangeAccent,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "FontMain"))
+            ],
+          )),
+        ));
   }
 }
