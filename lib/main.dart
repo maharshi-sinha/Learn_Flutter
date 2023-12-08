@@ -40,31 +40,27 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Dashboard"),
+      appBar: AppBar(
+        title: Text("Dashboard"),
+      ),
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        color: Colors.blueGrey,
+        child: Stack(
+          children: [
+            Positioned(
+              bottom: 11,
+              right: 21,
+              child: Container(
+                height: 100,
+                width: 100,
+                color: Colors.white,
+              ),
+            ),
+          ],
         ),
-        body: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              FaIcon(
-                FontAwesomeIcons.facebook,
-                size: 50,
-              ),
-              Icon(
-                Icons.apple,
-                size: 50,
-              ),
-              FaIcon(
-                FontAwesomeIcons.amazon,
-                size: 50,
-              ),
-              FaIcon(
-                FontAwesomeIcons.google,
-                size: 50,
-              )
-            ],
-          ),
-        ));
+      ),
+    );
   }
 }
