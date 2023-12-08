@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project1/ui_helper/util.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(FlutterApp());
@@ -43,27 +44,27 @@ class DashboardScreen extends StatelessWidget {
           title: Text("Dashboard"),
         ),
         body: Center(
-          child: RichText(
-              text: TextSpan(
-            style: TextStyle(color: Colors.grey, fontSize: 20),
-            children: <TextSpan>[
-              TextSpan(text: "Hello "),
-              TextSpan(
-                  text: "World,",
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25)),
-              TextSpan(text: " Welcome to "),
-              TextSpan(
-                  text: 'Flutter',
-                  style: TextStyle(
-                      color: Colors.deepOrangeAccent,
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: "FontMain"))
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              FaIcon(
+                FontAwesomeIcons.facebook,
+                size: 50,
+              ),
+              Icon(
+                Icons.apple,
+                size: 50,
+              ),
+              FaIcon(
+                FontAwesomeIcons.amazon,
+                size: 50,
+              ),
+              FaIcon(
+                FontAwesomeIcons.google,
+                size: 50,
+              )
             ],
-          )),
+          ),
         ));
   }
 }
