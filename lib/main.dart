@@ -23,41 +23,37 @@ class FlutterApp extends StatelessWidget {
   }
 }
 
-class DashboardScreen extends StatelessWidget {
-  DashboardScreen({Key? key}) : super(key: key);
+class DashboardScreen extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return DashboardState();
+  }
+}
 
-  // var arrColors = [
-  //   Colors.red,
-  //   Colors.green,
-  //   Colors.blue,
-  //   Colors.yellow,
-  //   Colors.pink,
-  //   Colors.purple,
-  //   Colors.orange,
-  //   Colors.brown
-  // ];
+class DashboardState extends State<DashboardScreen> {
+  var counter = 0;
 
   @override
   Widget build(BuildContext context) {
+    // TODO: implement build
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Dashboard"),
-      ),
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        color: Colors.blueGrey,
-        child: Stack(
+      appBar: AppBar(title: Text("Dashboard")),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Positioned(
-              bottom: 11,
-              right: 21,
-              child: Container(
-                height: 100,
-                width: 100,
-                color: Colors.white,
-              ),
+            Text(
+              "Count: $counter",
+              style: TextStyle(fontSize: 30),
             ),
+            ElevatedButton(
+              onPressed: () {
+                counter++;
+                setState(() {});
+              },
+              child: Text('Increment Counter'),
+            )
           ],
         ),
       ),
