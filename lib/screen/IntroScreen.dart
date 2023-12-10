@@ -14,9 +14,14 @@ class IntroScreen extends StatelessWidget {
             children: [
               Text(
                 "Welcome to intro page",
-                style: TextStyle(fontSize: 34, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 45,
+                  fontWeight: FontWeight.normal,
+                  fontFamily: "FontMain",
+                  color: Colors.black,
+                ),
               ),
-              SizedBox(height: 11),
+              SizedBox(height: 8),
               ElevatedButton(
                   onPressed: () {
                     Navigator.push(
