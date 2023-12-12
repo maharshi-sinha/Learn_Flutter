@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:project1/main.dart';
 
 class IntroScreen extends StatelessWidget {
+  var nameFromFirstScreen;
+
+  IntroScreen(this.nameFromFirstScreen); //Constructor same name as class
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +17,7 @@ class IntroScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Welcome to intro page",
+                "Welcome, $nameFromFirstScreen",
                 style: TextStyle(
                   fontSize: 45,
                   fontWeight: FontWeight.normal,

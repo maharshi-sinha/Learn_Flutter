@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:project1/FirstScreen.dart';
 import 'package:project1/screen/IntroScreen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -16,7 +17,7 @@ class SplashScreenState extends State<SplashScreen> {
 
     Timer(Duration(seconds: 3), () {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return IntroScreen();
+        return FirstScreen();
       }));
     });
   }
@@ -24,6 +25,7 @@ class SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 300,
       color: Colors.blue.shade500,
       child: Center(
         child: Column(
