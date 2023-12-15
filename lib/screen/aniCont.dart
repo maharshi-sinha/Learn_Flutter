@@ -9,6 +9,11 @@ class aniContState extends State<aniCont> {
   var _width = 200.0;
   var _height = 100.0;
 
+  Decoration MyDecor = BoxDecoration(
+    borderRadius: BorderRadius.circular(2.0),
+    color: Colors.blueGrey,
+  );
+
   bool flag = true;
 
   @override
@@ -21,7 +26,8 @@ class aniContState extends State<aniCont> {
             AnimatedContainer(
                 width: _width,
                 height: _height,
-                color: Colors.blueGrey,
+                decoration: MyDecor,
+                curve: Curves.slowMiddle,
                 duration: Duration(seconds: 2)),
             ElevatedButton(
                 onPressed: () {
@@ -29,10 +35,18 @@ class aniContState extends State<aniCont> {
                     if (flag) {
                       _width = 100.0;
                       _height = 200.0;
+                      MyDecor = BoxDecoration(
+                        borderRadius: BorderRadius.circular(21.0),
+                        color: Colors.orange,
+                      );
                       flag = false;
                     } else {
                       _width = 200.0;
                       _height = 100.0;
+                      MyDecor = BoxDecoration(
+                        borderRadius: BorderRadius.circular(2.0),
+                        color: Colors.blueGrey,
+                      );
                       flag = true;
                     }
                   });
