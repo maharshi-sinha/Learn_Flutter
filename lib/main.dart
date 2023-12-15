@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project1/FirstScreen.dart';
 import 'package:project1/screen/IntroScreen.dart';
 import 'package:project1/screen/SplashScreen.dart';
+import 'package:project1/screen/aniCont.dart';
 import 'package:project1/ui_helper/util.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -21,7 +22,7 @@ class FlutterApp extends StatelessWidget {
     return MaterialApp(
       title: "Flutter App",
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: SplashScreen(),
+      home: aniCont(),
     );
   }
 }
@@ -122,7 +123,21 @@ class DashboardState extends State<DashboardScreen> {
                           fontWeight: FontWeight.bold,
                           color: const Color.fromARGB(255, 5, 88, 155)),
                     ),
-                  )
+                  ),
+                  SizedBox(height: 0),
+                  ElevatedButton(
+                    onPressed: () {
+                      var no1 = int.parse(no1Controller.text);
+                      var no2 = int.parse(no2Controller.text);
+
+                      var ac = result;
+
+                      result = "";
+
+                      setState(() {});
+                    },
+                    child: Text("AC"),
+                  ),
                 ],
               ),
             ),
