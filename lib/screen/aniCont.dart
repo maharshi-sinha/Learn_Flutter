@@ -59,7 +59,22 @@ class aniContState extends State<aniCont> {
                 onPressed: () {
                   reload();
                 },
-                child: Text("animate"))
+                child: Text("animate")),
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 25.0,
+              ),
+              child: Text(
+                  "Upper one is AnimatedCrossFade and lower one is Hero Animation"),
+            ),
+            Hero(
+                tag: "Dashimage",
+                child: Image.asset(
+                  "assets/images/Dash.png",
+                )),
           ],
         ),
       ),
