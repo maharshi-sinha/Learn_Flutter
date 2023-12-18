@@ -16,16 +16,23 @@ class cprrState extends State<cprr> {
       appBar: AppBar(
         title: Text("Clip RRect"),
       ),
-      body: Center(
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(50),
-          child: Container(
-            width: 300,
-            height: 300,
-            color: Colors.blueGrey,
-            child: Center(
-                child: Text("You can add image here",
-                    style: TextStyle(fontSize: 25, color: Colors.white))),
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [
+          Colors.blue,
+          Colors.white,
+        ])),
+        child: Center(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(50),
+            child: Container(
+              width: 300,
+              height: 300,
+              color: Colors.blueGrey,
+              child: Center(
+                  child: Text("You can add image here",
+                      style: TextStyle(fontSize: 25, color: Colors.white))),
+            ),
           ),
         ),
       ),
