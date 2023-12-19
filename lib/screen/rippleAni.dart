@@ -35,19 +35,29 @@ class rippleAniState extends State<rippleAni>
         body: Center(
           child: Stack(
             alignment: Alignment.center,
-            children: listRadius
-                .map(
-                  (radius) => Container(
-                    width: radius * _animationController.value,
-                    height: radius * _animationController.value,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.pink
-                            .withOpacity(1.0 - _animationController.value)),
-                  ),
-                )
-                .toList(),
+            children: [
+              BuildMyContainer(listRadius[0]),
+              BuildMyContainer(listRadius[1]),
+              BuildMyContainer(listRadius[2]),
+              BuildMyContainer(listRadius[3]),
+              BuildMyContainer(listRadius[4]),
+              Image.asset(
+                "assets/images/Dash.png",
+                height: 250,
+                width: 250,
+              )
+            ],
           ),
         ));
+  }
+
+  Widget BuildMyContainer(radius) {
+    return Container(
+      width: radius * _animationController.value,
+      height: radius * _animationController.value,
+      decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: Colors.pink.withOpacity(1.0 - _animationController.value)),
+    );
   }
 }
