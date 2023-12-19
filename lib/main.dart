@@ -6,6 +6,7 @@ import 'package:project1/screen/TAnimation.dart';
 import 'package:project1/screen/aniCont.dart';
 import 'package:project1/screen/heroAnimation.dart';
 import 'package:project1/screen/cprr.dart';
+import 'package:project1/screen/rippleAni.dart';
 import 'package:project1/screen/uiList.dart';
 import 'package:project1/ui_helper/util.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -26,7 +27,7 @@ class FlutterApp extends StatelessWidget {
     return MaterialApp(
       title: "Flutter App",
       theme: ThemeData(primarySwatch: Colors.orange),
-      home: TAnimation(),
+      home: rippleAni(),
     );
   }
 }

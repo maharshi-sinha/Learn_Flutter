@@ -26,7 +26,7 @@ class TAnimationState extends State<TAnimation>
         .animate(animationController);
 
     animationController.addListener(() {
-      print(animation.value);
+      // print(animation.value);
       setState(() {});
     });
 
@@ -37,7 +37,7 @@ class TAnimationState extends State<TAnimation>
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text("Tween Animation"),
+        title: Center(child: Text("Tween Animation")),
       ),
       body: Center(
         child: Container(
