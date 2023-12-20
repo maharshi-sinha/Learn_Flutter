@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project1/screen/uiList.dart';
 
 class rippleAni extends StatefulWidget {
   @override
@@ -41,10 +42,16 @@ class rippleAniState extends State<rippleAni>
               BuildMyContainer(listRadius[2]),
               BuildMyContainer(listRadius[3]),
               BuildMyContainer(listRadius[4]),
-              Image.asset(
-                "assets/images/Dash.png",
-                height: 250,
-                width: 250,
+              InkWell(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => uiList()),
+                ),
+                child: Image.asset(
+                  "assets/images/Dash.png",
+                  height: 250,
+                  width: 250,
+                ),
               )
             ],
           ),

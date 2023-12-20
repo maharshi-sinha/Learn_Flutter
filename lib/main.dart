@@ -6,6 +6,7 @@ import 'package:project1/screen/TAnimation.dart';
 import 'package:project1/screen/aniCont.dart';
 import 'package:project1/screen/heroAnimation.dart';
 import 'package:project1/screen/cprr.dart';
+import 'package:project1/screen/prefShared.dart';
 import 'package:project1/screen/rippleAni.dart';
 import 'package:project1/screen/uiList.dart';
 import 'package:project1/ui_helper/util.dart';
@@ -26,8 +27,8 @@ class FlutterApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Flutter App",
-      theme: ThemeData(primarySwatch: Colors.orange),
-      home: rippleAni(),
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: prefShared(),
     );
   }
 }
