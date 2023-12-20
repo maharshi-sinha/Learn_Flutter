@@ -31,7 +31,7 @@ class IntroScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) {
-                        return DashboardScreen();
+                        return HomePage();
                       }),
                     );
                   },
