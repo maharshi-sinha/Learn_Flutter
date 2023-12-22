@@ -13,6 +13,7 @@ import 'package:project1/screen/rippleAni.dart';
 import 'package:project1/screen/uiList.dart';
 import 'package:project1/ui_helper/util.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:project1/screen/SideBar.dart';
 
 void main() {
   runApp(FlutterApp());
@@ -41,6 +42,7 @@ class HomepageState extends State<HomePage> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+        drawer: SideBar(),
         appBar:
             AppBar(title: Center(child: Text("Shared Preferences example"))),
         body: Container(
