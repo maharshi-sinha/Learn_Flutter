@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:project1/FirstScreen.dart';
 import 'package:project1/screen/IntroScreen.dart';
 import 'package:project1/screen/LoginSP.dart';
@@ -40,25 +41,47 @@ class HomepageState extends State<HomePage> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(title: Center(child: Text("Shared Preferences example"))),
-      body: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [Color(0xff30cfd0), Color(0xff330867)],
-                begin: Alignment.bottomCenter,
-                end: Alignment.topCenter)),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Center(
-                child: Icon(
-              Icons.home,
-              size: 100,
-              color: Colors.white70,
-            )),
-          ],
+        appBar:
+            AppBar(title: Center(child: Text("Shared Preferences example"))),
+        body: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [Color(0xff30cfd0), Color(0xff330867)],
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter)),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(
+                  child: Icon(
+                Icons.home,
+                size: 100,
+                color: Colors.white70,
+              )),
+            ],
+          ),
         ),
-      ),
-    );
+        bottomNavigationBar: Container(
+          color: Color(0xff330867),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+            child: GNav(
+                backgroundColor: Color(0xff330867),
+                color: Colors.white,
+                activeColor: Colors.white,
+                tabBackgroundColor: Color(0xff30cfd0),
+                padding: EdgeInsets.all(16),
+                gap: 8,
+                onTabChange: (index) {
+                  print(index);
+                },
+                tabs: [
+                  GButton(icon: Icons.home, text: 'Home'),
+                  GButton(icon: Icons.favorite, text: 'Likes'),
+                  GButton(icon: Icons.search, text: 'Search'),
+                  GButton(icon: Icons.person, text: 'Profile'),
+                ]),
+          ),
+        ));
   }
 }
