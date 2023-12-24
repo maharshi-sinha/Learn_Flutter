@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:project1/FirstScreen.dart';
 import 'package:project1/screen/IntroScreen.dart';
@@ -9,6 +8,7 @@ import 'package:project1/screen/TAnimation.dart';
 import 'package:project1/screen/aniCont.dart';
 import 'package:project1/screen/heroAnimation.dart';
 import 'package:project1/screen/cprr.dart';
+import 'package:project1/screen/imgPickr.dart';
 import 'package:project1/screen/prefShared.dart';
 import 'package:project1/screen/rippleAni.dart';
 import 'package:project1/screen/uiList.dart';
@@ -28,7 +28,7 @@ class FlutterApp extends StatelessWidget {
     return MaterialApp(
       title: "Flutter App",
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: SplashScreen(),
+      home: HomePage(),
     );
   }
 }
@@ -56,24 +56,17 @@ class HomepageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Center(
-                  child: InkWell(
-                      child: Container(
-                        child: Icon(
-                          Icons.home,
-                          size: 100,
-                          color: Colors.white70,
-                        ),
-                      ),
-                      onTap: () {
-                        Fluttertoast.showToast(
-                            msg: "Home",
-                            toastLength: Toast.LENGTH_SHORT,
-                            gravity: ToastGravity.BOTTOM,
-                            timeInSecForIosWeb: 1,
-                            backgroundColor: Colors.black54,
-                            textColor: Colors.white,
-                            fontSize: 16.0);
-                      })),
+                child: Container(
+                  child: Icon(
+                    Icons.home,
+                    size: 100,
+                    color: Colors.white70,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
             ],
           ),
         ),
@@ -93,7 +86,16 @@ class HomepageState extends State<HomePage> {
                 },
                 tabs: [
                   GButton(icon: Icons.home, text: 'Home'),
-                  GButton(icon: Icons.favorite, text: 'Likes'),
+                  GButton(
+                    icon: Icons.skip_next,
+                    text: 'next page',
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return imgPickr();
+                      }));
+                    },
+                  ),
                   GButton(icon: Icons.search, text: 'Search'),
                   GButton(icon: Icons.person, text: 'Profile'),
                 ]),
