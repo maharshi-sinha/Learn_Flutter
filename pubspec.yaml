@@ -41,6 +41,7 @@ dependencies:
   google_nav_bar: ^5.0.6
   image_picker: ^1.0.5
   path_provider: ^2.1.1
+  flutter_launcher_icons: ^0.13.1
   # fluttertoast: ^8.2.4
 
 dev_dependencies:
@@ -95,3 +96,10 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: "AppIcon"
+  image_path: "assets/icon/icon.png"
+  min_sdk_version: 20
+  remove_alpha_ios: true
