@@ -15,8 +15,14 @@ import 'package:project1/screen/uiList.dart';
 import 'package:project1/ui_helper/util.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:project1/screen/SideBar.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(FlutterApp());
 }
 

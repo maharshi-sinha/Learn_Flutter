@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "390719619248",
+    "project_id": "norse-fiber-367205",
+    "storage_bucket": "norse-fiber-367205.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390719619248:android:91c4999ef87b6b6698fb75",
+        "android_client_info": {
+          "package_name": "com.example.project1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJN4HauaPwt5bi8QaCb4xOqe-idoqIlvQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
