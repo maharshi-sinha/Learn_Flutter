@@ -6,6 +6,7 @@ import 'package:project1/screen/LoginSP.dart';
 import 'package:project1/screen/SplashScreen.dart';
 import 'package:project1/screen/TAnimation.dart';
 import 'package:project1/screen/aniCont.dart';
+import 'package:project1/screen/email_auth/loginScreen.dart';
 import 'package:project1/screen/heroAnimation.dart';
 import 'package:project1/screen/cprr.dart';
 import 'package:project1/screen/imgPickr.dart';
@@ -34,7 +35,7 @@ class FlutterApp extends StatelessWidget {
     return MaterialApp(
       title: "Flutter App",
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: HomePage(),
+      home: loginScreen(),
     );
   }
 }
