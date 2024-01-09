@@ -61,8 +61,17 @@ class HomepageState extends State<HomePage> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-        // drawer: SideBar(),
-        appBar: AppBar(title: Center(child: Text("Home Page"))),
+        drawer: SideBar(),
+        appBar: AppBar(
+          title: Center(child: Text("Home Page")),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  logOut();
+                },
+                icon: Icon(Icons.exit_to_app))
+          ],
+        ),
         body: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
