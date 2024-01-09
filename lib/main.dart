@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:project1/FirstScreen.dart';
@@ -35,7 +36,9 @@ class FlutterApp extends StatelessWidget {
     return MaterialApp(
       title: "Flutter App",
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: loginScreen(),
+      home: (FirebaseAuth.instance.currentUser != null)
+          ? HomePage()
+          : loginScreen(),
     );
   }
 }
@@ -46,13 +49,20 @@ class HomePage extends StatefulWidget {
 }
 
 class HomepageState extends State<HomePage> {
+  void logOut() async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.popUntil(context, (route) => route.isFirst);
+
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => loginScreen()));
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-        drawer: SideBar(),
-        appBar:
-            AppBar(title: Center(child: Text("Shared Preferences example"))),
+        // drawer: SideBar(),
+        appBar: AppBar(title: Center(child: Text("Home Page"))),
         body: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(

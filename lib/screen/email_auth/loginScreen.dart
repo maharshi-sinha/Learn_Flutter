@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:project1/main.dart';
 import 'package:project1/screen/email_auth/signUp.dart';
 
 class loginScreen extends StatefulWidget {
@@ -11,8 +14,30 @@ class loginScreen extends StatefulWidget {
 }
 
 class loginScreenState extends State<loginScreen> {
-  var emailController = TextEditingController();
-  var passwordController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  void login() async {
+    String email = emailController.text.toString().trim();
+    String password = passwordController.text.toString().trim();
+
+    if (email == "" || password == "") {
+      print("Please fill all the fields!");
+    } else {
+      try {
+        UserCredential userCredential = await FirebaseAuth.instance
+            .signInWithEmailAndPassword(email: email, password: password);
+        if (userCredential.user != null) {
+          Navigator.popUntil(context, (route) => route.isFirst);
+
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => HomePage()));
+        }
+      } on FirebaseAuthException catch (ex) {
+        print(ex.code.toString());
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +94,11 @@ class loginScreenState extends State<loginScreen> {
             SizedBox(
               height: 10,
             ),
-            ElevatedButton(onPressed: () {}, child: Text("Login")),
+            ElevatedButton(
+                onPressed: () {
+                  login();
+                },
+                child: Text("Login")),
             SizedBox(
               height: 10,
             ),
