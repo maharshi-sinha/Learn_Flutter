@@ -11,6 +11,7 @@ import 'package:project1/screen/email_auth/loginScreen.dart';
 import 'package:project1/screen/heroAnimation.dart';
 import 'package:project1/screen/cprr.dart';
 import 'package:project1/screen/imgPickr.dart';
+import 'package:project1/screen/phone_auth/SignInWithPhone.dart';
 import 'package:project1/screen/prefShared.dart';
 import 'package:project1/screen/rippleAni.dart';
 import 'package:project1/screen/uiList.dart';
@@ -38,7 +39,7 @@ class FlutterApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blue),
       home: (FirebaseAuth.instance.currentUser != null)
           ? HomePage()
-          : loginScreen(),
+          : SignInWithPhone(),
     );
   }
 }
